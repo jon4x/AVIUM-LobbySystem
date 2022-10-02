@@ -1,0 +1,34 @@
+name: LobbySystem
+version: '${project.version}'
+main: de.lauxmedia.avium.lobby.Lobby
+api-version: 1.16
+depend:
+  - ProtocolLib
+softdepend:
+  - CloudNet-Bridge
+authors: [ jonax, lauxmedia ]
+website: lauxmedia.de
+description: A lobby system for server networks.
+
+commands:
+  killall:
+    description: Kill all entities.
+  setspawn:
+    description: Set spawn location.
+  spawn:
+    description: Teleport to spawn location.
+  build:
+    description: Change Build-Mode.
+    usage: §c/build <player>
+  setwarp:
+    description: Set a warp.
+    usage: §c/setwarp <name>
+  warp:
+    description: Set a warp.
+    usage: §c/warp <name>
+  createnpc:
+    description: Create a NPC.
+    usage: §c/createnpc <skinOwner> <displayName>
+  editnpc:
+    description: Create a NPC.
+    usage: §c/editnpc <arg> <arg>
