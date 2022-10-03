@@ -2,8 +2,6 @@ package de.lauxmedia.avium.lobby;
 
 import com.github.juliarn.npc.NPC;
 import com.github.juliarn.npc.NPCPool;
-import de.dytanic.cloudnet.driver.CloudNetDriver;
-import de.dytanic.cloudnet.ext.bridge.player.IPlayerManager;
 import de.lauxmedia.avium.lobby.commands.*;
 import de.lauxmedia.avium.lobby.listener.*;
 import de.lauxmedia.avium.lobby.utils.NpcManager;

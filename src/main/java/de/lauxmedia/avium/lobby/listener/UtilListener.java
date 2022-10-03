@@ -3,7 +3,6 @@ package de.lauxmedia.avium.lobby.listener;
 import de.lauxmedia.avium.lobby.inventories.Items;
 import de.lauxmedia.avium.lobby.utils.Utility;
 import org.bukkit.Effect;
-import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,7 +12,6 @@ import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.util.Objects;
 
 public class UtilListener implements Listener {
 
