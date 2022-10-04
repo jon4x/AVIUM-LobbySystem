@@ -33,9 +33,9 @@ public class NavigatorListener implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         if (event.getClickedInventory() != null) {
-            if (event.getView().getTitle().contains("Navigator")) {
+            if (event.getView().getTitle().toLowerCase().contains("navigator")) {
                 if (event.getCurrentItem() != null) {
-                    if (Objects.requireNonNull(event.getCurrentItem()).getItemMeta().getDisplayName().equals(Navigator.getSpawn().getItemMeta().getDisplayName())) {
+                    if (event.getCurrentItem().getItemMeta().getDisplayName().equals(Navigator.getSpawn().getItemMeta().getDisplayName())) {
                         player.performCommand("spawn");
                     }
                 }
