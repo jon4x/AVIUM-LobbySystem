@@ -11,6 +11,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.Inventory;
 
 
 public class UtilListener implements Listener {
@@ -56,7 +57,8 @@ public class UtilListener implements Listener {
     public void onInventoryClose(InventoryCloseEvent event) {
         Player player = (Player) event.getPlayer();
         if (Utility.getInAnimation().contains(player)) {
-            Utility.getInAnimation().remove(player);
+            Inventory closedInventory = event.getInventory();
+            player.openInventory(closedInventory);
         }
     }
 

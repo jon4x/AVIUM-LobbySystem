@@ -4,6 +4,7 @@ main: de.lauxmedia.avium.lobby.Lobby
 api-version: 1.16
 depend:
   - ProtocolLib
+  - CoinsAPI
 softdepend:
   - CloudNet-Bridge
 authors: [ jonax, lauxmedia ]
@@ -19,16 +20,19 @@ commands:
     description: Teleport to spawn location.
   build:
     description: Change Build-Mode.
-    usage: §c/build <player>
+    usage: '§cPlease use: /build <player>'
   setwarp:
     description: Set a warp.
-    usage: §c/setwarp <name>
+    usage: '§cPlease use: /setwarp <name>'
   warp:
     description: Set a warp.
-    usage: §c/warp <name>
+    usage: '§cPlease use: /warp <name>'
   createnpc:
     description: Create a NPC.
-    usage: §c/createnpc <skinOwner> <displayName>
+    usage: '§cPlease use: /createnpc <skinOwner> <displayName>'
   editnpc:
     description: Create a NPC.
-    usage: §c/editnpc <arg> <arg>
+    usage: '§cPlease use: /editnpc <arg> <arg>'
+  coins:
+    description: add, set or remove coins.
+    usage: '§cPlease use: /coins'

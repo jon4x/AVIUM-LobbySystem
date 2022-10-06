@@ -13,15 +13,28 @@ import org.bukkit.inventory.ItemStack;
 
 public class Rewards {
 
-    static ItemStack dailyReward = new ItemManager(Material.GOLDEN_APPLE, 1)
-            .setName("§6§nDaily Reward")
-            .setLore("", "§a§o+100 Emeralds", "")
+    static ItemStack dailyRewardPremium = new ItemManager(Material.TNT_MINECART, 1)
+            .setName("§6Premium Daily Reward")
+            .setLore("§a§o+500 Emeralds")
             .setUnbreakable()
             .setItemFlag(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE)
             .toItemStack();
-    static ItemStack dailyRewardCollected = new ItemManager(Material.APPLE, 1)
+
+    static ItemStack dailyRewardCollected = new ItemManager(Material.MINECART, 1)
             .setName("§6§nDaily Reward")
-            .setLore("", "§c§oAlready picked up!", "")
+            .setLore("§7§oAlready picked up!")
+            .setItemFlag(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE)
+            .toItemStack();
+
+    static ItemStack dailyPremiumRewardCollected = new ItemManager(Material.MINECART, 1)
+            .setName("§6§nPremium Daily Reward")
+            .setLore("§7§oAlready picked up!")
+            .setItemFlag(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE)
+            .toItemStack();
+    static ItemStack dailyReward = new ItemManager(Material.CHEST_MINECART, 1)
+            .setName("§6Daily Reward")
+            .setLore("§a§o+100 Emeralds")
+            .setUnbreakable()
             .setItemFlag(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE)
             .toItemStack();
 
@@ -49,7 +62,10 @@ public class Rewards {
         // Set Items
         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Lobby.getInstance(), () -> {
             if (Utility.getInAnimation().contains(player)) {
-                inventory.setItem(9 + 4, dailyReward);
+                inventory.setItem(9 + 2, dailyReward);
+                player.playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 0.1f, 1f);
+                Utility.getInAnimation().remove(player);
+                inventory.setItem(9 + 6, dailyRewardPremium);
                 player.playSound(player.getLocation(), Sound.BLOCK_GLASS_BREAK, 0.1f, 1f);
                 Utility.getInAnimation().remove(player);
             }
