@@ -1,6 +1,6 @@
 package de.lauxmedia.avium.lobby.commands;
 
-import de.lauxmedia.avium.coinsapi.CoinsAPI;
+import de.lauxmedia.avium.coins.Coins;
 import de.lauxmedia.avium.lobby.utils.UUIDFetcher;
 import de.lauxmedia.avium.lobby.utils.Utility;
 import org.bukkit.command.Command;
@@ -30,10 +30,11 @@ public class CoinsCommand implements CommandExecutor {
             if (args.length == 0) {
                 return false;
             }
+            // set coins
             else if (args[0].equalsIgnoreCase("set")) {
                 if (args.length == 3) {
                     String playerName = args[1];
-                    double amount = Double.parseDouble(args[2]);
+                    int amount = Integer.parseInt(args[2]);
                     if (amount > 999999999) {
                         player.sendMessage("§cSorry, the maximum amount of coins is 999999999");
                         return true;
@@ -41,9 +42,10 @@ public class CoinsCommand implements CommandExecutor {
                     else if (UUIDFetcher.getUUID(playerName) != null) {
                         UUID uuid = UUIDFetcher.getUUID(playerName);
                         player.sendMessage("§7Coins for §a" + playerName + "§7 have been set to §6" + amount + "§7." );
-                        CoinsAPI.getInstance().setCoins(String.valueOf(uuid), (int) amount);
-                    } else {
-                        player.sendMessage("§This player does not exist!");
+                        Coins.getApi().setCoins(String.valueOf(uuid), amount);
+                    }
+                    else {
+                        player.sendMessage("§cThis player does not exist!");
                     }
                     return true;
                 }
@@ -52,14 +54,23 @@ public class CoinsCommand implements CommandExecutor {
                     return true;
                 }
             }
+            // get coins
             else if (args[0].equalsIgnoreCase("get")) {
                 if (args.length == 2) {
-                    player.sendMessage("pimmel");
+                    String playerName = args[1];
+                    if (UUIDFetcher.getUUID(playerName) != null) {
+                        UUID uuid = UUIDFetcher.getUUID(playerName);
+                        int amount = Coins.getApi().getCoins(uuid.toString());
+                        player.sendMessage("§7Player §a" + playerName + "§7 currently has §6" + amount + "§7." );
+                    }
+                    else {
+                        player.sendMessage("§cThis player does not exist!");
+                    }
                 }
                 else {
-                    player.sendMessage("§cPlease use: /coins set <player> <amount>");
-                    return true;
+                    player.sendMessage("§cPlease use: /coins get <player>");
                 }
+                return true;
             }
         }
         return true;
