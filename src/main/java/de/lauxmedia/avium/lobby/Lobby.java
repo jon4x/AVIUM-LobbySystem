@@ -72,7 +72,6 @@ public final class Lobby extends JavaPlugin {
         Objects.requireNonNull(this.getCommand("warp")).setExecutor(new WarpCommand());
         Objects.requireNonNull(this.getCommand("createnpc")).setExecutor(new CreateNpcCommand());
         Objects.requireNonNull(this.getCommand("editnpc")).setExecutor(new EditNpcCommand());
-        Objects.requireNonNull(this.getCommand("coins")).setExecutor(new CoinsCommand());
     }
 
     // load Config

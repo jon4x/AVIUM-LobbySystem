@@ -33,6 +33,3 @@ commands:
   editnpc:
     description: Create a NPC.
     usage: '§cPlease use: /editnpc <arg> <arg>'
-  coins:
-    description: add, set or remove coins.
-    usage: '§cPlease use: /coins'
